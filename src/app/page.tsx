@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import Hero from "@/components/hero";
 import Keunggulan from "@/components/keunggulan";
+import CaraKerja from "@/components/cara-kerja";
 import Paket from "@/components/paket";
 import Footer from "@/components/footer";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <Hero />
       <Keunggulan />
       <Paket />
+      <CaraKerja />
       <Footer />
     </div>
   );

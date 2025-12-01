@@ -1,5 +1,6 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -21,9 +22,16 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-40 bg-white/70 dark:bg-black/50 backdrop-blur border-b border-gray-200 dark:border-neutral-800">
       <div className="mx-auto max-w-6xl px-6 py-3 sm:py-4 grid grid-cols-[auto_1fr_auto] items-center gap-3 sm:gap-4">
-        <div className="flex items-center gap-3">
-          <div className="h-7 w-7 sm:h-8 sm:w-8 rounded-md bg-black dark:bg-white" />
-          <span className="text-base sm:text-xl font-bold">kinoystore.com</span>
+        <div className="flex items-center gap-2">
+          <Image
+            src="/logo.png"
+            alt="Kinoystore Logo"
+            width={40}
+            height={40}
+            priority
+            className="h-9 w-9 sm:h-10 sm:w-10 object-contain"
+          />
+          <span className="text-lg sm:text-xl font-bold leading-none">kinoystore.com</span>
         </div>
 
         <nav className="hidden md:block justify-self-center">

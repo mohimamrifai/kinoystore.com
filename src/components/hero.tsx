@@ -24,7 +24,7 @@ export default function Hero() {
             Aktifkan akses Cloud Android Redfinger dalam hitungan menit. Pembayaran aman dan kode langsung dikirim ke akun serta email Anda.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button size="lg" className="text-base" asChild>
+            <Button size="lg" className="text-base bg-red-600 text-white hover:bg-red-700 transition-colors" asChild>
               <Link href="#paket">Lihat Paket</Link>
             </Button>
             <Button variant="outline" size="lg" className="text-base" asChild>

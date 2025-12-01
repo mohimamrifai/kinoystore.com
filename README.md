@@ -1,36 +1,97 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+Rangkuman Project – Website Penjualan Digital Product (Redfinger)
 
-## Getting Started
+1. Identitas & Ruang Lingkup Project
 
-First, run the development server:
+Client: Qinansyah
+Jenis proyek: Website penjualan produk digital (Redfinger)
+Referensi: ourcloud.id
+Teknologi utama: Next.js, postgresql, prisma, tailwindcss, shadcn-ui
+Nama Aplikasi Web: kinoystore.com
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Website akan menjual produk digital Redfinger dengan fitur otomatisasi distribusi kode.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Alur Bisnis (Flow) yang Diminta Client
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Alur dari supplier → website:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- Owner order produk ke supplier. ( luar aplikasi dan hanya bersifat informasi )
+- Supplier mengirim file .txt/.csv berisi kumpulan kode. ( luar aplikasi dan hanya bersifat informasi )
+- Owner upload file tersebut melalui dashboard admin.
+- Sistem membaca kode dan menyimpannya ke database sesuai kategori (grade, durasi, device, dll).
+Pembeli melakukan order melalui website.
+- Setelah pembayaran terverifikasi, sistem mengirimkan kode secara otomatis lewat website & email.
+- Stok kode berkurang otomatis.
+- Semua transaksi tercatat di dashboard admin.
 
-## Learn More
+3. Fitur yang Akan Dibangun
 
-To learn more about Next.js, take a look at the following resources:
+# Fitur Admin
+- Upload file kode .txt/.csv
+- Parsing otomatis → masuk ke database
+- Manajemen produk (grade, durasi, device, harga, status)
+- Manajemen stok kode
+- Manajemen transaksi & user
+- Dashboard laporan & riwayat transaksi
+# Fitur Pembeli
+- Registrasi & login (Email dan Google)
+- Melihat produk digital & memilih paket
+- Melakukan pembayaran otomatis (Midtrans)
+- Menerima kode otomatis setelah pembayaran berhasil
+- Menerima invoice dan detail transaksi melalui email & dashboard akun
+- Fitur Sistem Otomatis
+- Auto-assign kode berdasarkan paket pesanan
+- Auto send kode ke pembeli (website + email)
+- Auto reduce stock
+- Auto-generate invoice
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Perkiraan Jumlah Halaman Website
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Agar lebih jelas, saya bagi menjadi dua bagian: Halaman untuk Pembeli (Frontend) dan Halaman untuk Admin (Dashboard Admin).
 
-## Deploy on Vercel
+1. Halaman Pembeli (Frontend)
+- Estimasi: 10–12 halaman
+- Landing Page / Home
+- Halaman Produk / Paket (List Paket Redfinger)
+- Halaman Detail Paket
+- Halaman Login
+- Halaman Register
+- Halaman Login Via Google (redirect)
+- Halaman Checkout
+- Halaman Pembayaran (Midtrans Snap redirect/modal)
+- Halaman Status Pembayaran (success / pending / failed)
+- Halaman Dashboard User
+- Halaman Riwayat Transaksi User
+- Halaman Detail Transaksi (menampilkan kode yang sudah dibeli)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. Halaman Admin (Dashboard Admin)
+- Estimasi: 12–15 halaman
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+A. Dashboard Utama
+- Dashboard Overview (Ringkasan penjualan, stok, transaksi)
+
+B. Manajemen Produk
+- List Produk
+- Tambah Produk
+- Edit Produk
+
+C. Manajemen Kode Redeem
+- Upload File .txt/.csv (Import Kode)
+- List Kode (filter: grade, durasi, device)
+- Detail Kode / Edit / Hapus Kode (opsional)
+
+D. Transaksi
+- List Transaksi
+- Detail Transaksi
+
+E. User
+- List User
+- Detail User
+
+F. Laporan
+- Laporan Penjualan
+- Laporan Stok
+- Laporan Transaksi (opsional)
+
+G. Pengaturan
+- Setting Website / Payment / Profile Admin
+# kinoystore.com

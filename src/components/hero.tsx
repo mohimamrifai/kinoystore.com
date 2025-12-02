@@ -1,5 +1,7 @@
 "use client"
 import Link from "next/link"
+import Image from "next/image"
+import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { ShieldCheck } from "lucide-react"
 
@@ -11,7 +13,12 @@ export default function Hero() {
         <div className="absolute -bottom-24 -right-16 h-72 w-72 bg-gradient-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
       </div>
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16 grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-10 items-center">
-        <div className="space-y-7">
+        <motion.div
+          className="space-y-7"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
           <div className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-neutral-800 px-4 py-2 sm:px-5 sm:py-2 text-sm md:text-base font-medium text-gray-800 dark:text-gray-100 bg-white/70 dark:bg-black/50">
             <ShieldCheck className="size-4 md:size-5" />
             Resmi • Cepat • Aman
@@ -31,13 +38,22 @@ export default function Hero() {
               <Link href="#carakerja">Pelajari Cara Kerja</Link>
             </Button>
           </div>
-        </div>
-        <div className="relative h-64 md:h-80 rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/40 dark:bg-black/30">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="size-40 md:size-56 rounded-full bg-gradient-to-tr from-rose-400/40 to-indigo-400/40 blur-xl" />
-          </div>
-          <div className="absolute inset-4 rounded-xl border border-gray-200/60 dark:border-neutral-700/60" />
-        </div>
+        </motion.div>
+        <motion.div
+          className="relative h-64 md:h-[450px] rounded-2xl overflow-hidden border border-gray-200 dark:border-neutral-800"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
+        >
+          <Image
+            src="/hero.png"
+            alt="Ilustrasi layanan Redfinger"
+            fill
+            priority
+            sizes="(min-width: 768px) 45vw, 100vw"
+            className="object-cover"
+          />
+        </motion.div>
       </div>
     </section>
   )

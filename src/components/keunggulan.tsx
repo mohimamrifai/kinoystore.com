@@ -1,3 +1,5 @@
+"use client"
+import { motion } from "framer-motion"
 import { Clock, ShieldCheck, Headphones, Zap, Rocket, Globe } from "lucide-react"
 
 const items = [
@@ -49,18 +51,29 @@ export default function Keunggulan() {
       </div>
 
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <h2 className="text-3xl sm:text-5xl font-bold text-center">
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kenapa Memilih Kami?</span>
-        </h2>
-        <p className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg">
-          Pengalaman beli kode Redfinger yang aman, cepat, dan transparan.
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+          <h2 className="text-3xl sm:text-5xl font-bold text-center">
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kenapa Memilih Kami?</span>
+          </h2>
+          <p className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg">
+            Pengalaman beli kode Redfinger yang aman, cepat, dan transparan.
+          </p>
+        </motion.div>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
           {items.map((item, i) => (
-            <div
+            <motion.div
               key={i}
               className="group rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-8 shadow-sm transition hover:shadow-md hover:border-gray-400 dark:hover:border-neutral-500 hover:bg-gray-50 dark:hover:bg-neutral-800"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
             >
               <div className="flex flex-col items-center gap-4 text-center">
                 <div className="flex-shrink-0 w-16 aspect-square rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
@@ -73,7 +86,7 @@ export default function Keunggulan() {
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
 

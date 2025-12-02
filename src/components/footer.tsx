@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-gray-300">
       <div className="mx-auto max-w-6xl px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
           <div className="flex items-center gap-3">
             <Image
               src="/logo.png"
@@ -18,9 +18,12 @@ export default function Footer() {
             <span className="text-xl font-bold text-white">kinoystore.com</span>
           </div>
 
-          <nav className="md:justify-self-end flex flex-col gap-2">
+          <nav className="md:justify-between flex flex-col gap-2">
             <Link href="/" className="hover:text-white">Beranda</Link>
-            <Link href="/paket" className="hover:text-white">Paket</Link>
+            <Link href="#paket" className="hover:text-white">Daftar Paket</Link>
+            <Link href="#kontak" className="hover:text-white">Kontak</Link>
+          </nav>
+          <nav className="md:justify-between flex flex-col gap-2">
             <Link href="/#cara-kerja" className="hover:text-white">Cara Kerja</Link>
             <Link href="/#keunggulan" className="hover:text-white">Keunggulan</Link>
           </nav>

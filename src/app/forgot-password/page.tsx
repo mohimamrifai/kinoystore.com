@@ -21,7 +21,7 @@ export default function Page() {
   }
 
   return (
-    <div className="min-h-[100dvh] grid place-items-center px-6">
+    <div className="min-h-dvh grid place-items-center px-6">
       <div className="w-full max-w-sm">
         <div className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-6">
           <div className="flex items-center justify-center gap-2 mb-4">

@@ -38,7 +38,7 @@ export default function Kontak() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold text-center">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kontak Kami</span>
+            <span className="block text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kontak Kami</span>
           </h2>
           <p className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg">
             Punya pertanyaan? Tim kami siap membantu Anda 24/7

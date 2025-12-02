@@ -58,9 +58,9 @@ const paket: PaketItem[] = [
 export default function Paket() {
   return (
     <section id="paket" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28">
-      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className="absolute -top-28 -left-20 h-72 w-72 bg-gradient-to-tr from-rose-500/30 to-indigo-500/30 blur-3xl" />
-        <div className="absolute -bottom-28 -right-16 h-80 w-80 bg-gradient-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]">
+        <div className="absolute -top-28 -left-20 h-72 w-72 bg-linear-to-tr from-rose-500/30 to-indigo-500/30 blur-3xl" />
+        <div className="absolute -bottom-28 -right-16 h-80 w-80 bg-linear-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
       </div>
       <div className="mx-auto max-w-6xl px-6 py-12">
         <motion.h2
@@ -71,7 +71,7 @@ export default function Paket() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           Pilih Paket Sesuai
-          <span className="inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-gradient-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kebutuhan anda!</span>
+          <span className="inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kebutuhan anda!</span>
         </motion.h2>
         <motion.p
           className="mt-2 text-lg text-center text-gray-600 dark:text-gray-300"

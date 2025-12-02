@@ -8,9 +8,9 @@ import { ShieldCheck } from "lucide-react"
 export default function Hero() {
   return (
     <section className="relative overflow-hidden">
-      <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className="absolute -top-20 -left-24 h-64 w-64 bg-gradient-to-tr from-rose-500/30 to-indigo-500/30 blur-3xl" />
-        <div className="absolute -bottom-24 -right-16 h-72 w-72 bg-gradient-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
+      <div className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]">
+        <div className="absolute -top-20 -left-24 h-64 w-64 bg-linear-to-tr from-rose-500/30 to-indigo-500/30 blur-3xl" />
+        <div className="absolute -bottom-24 -right-16 h-72 w-72 bg-linear-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
       </div>
       <div className="mx-auto max-w-6xl px-6 pt-20 pb-16 grid grid-cols-1 md:grid-cols-[1.2fr_1fr] gap-10 items-center">
         <motion.div
@@ -25,7 +25,7 @@ export default function Hero() {
           </div>
           <h1 className="text-3xl sm:text-5xl font-extrabold leading-tight">
             Beli Kode Redfinger Resmi Indonesia.
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Instan, Terpercaya, Siap Pakai.</span>
+            <span className="block text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Instan, Terpercaya, Siap Pakai.</span>
           </h1>
           <p className="text-lg text-gray-700 dark:text-gray-300">
             Aktifkan akses Cloud Android Redfinger dalam hitungan menit. Pembayaran aman dan kode langsung dikirim ke akun serta email Anda.

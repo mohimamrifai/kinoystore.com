@@ -24,7 +24,7 @@ const transaksiDummy: Transaksi[] = [
 export default function Page() {
   return (
     <section className="grid gap-6">
-      <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-2 text-lg">
             <User className="h-5 w-5" /> Akun Saya
@@ -50,7 +50,7 @@ export default function Page() {
         </CardContent>
       </Card>
 
-      <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
         <CardHeader className="border-b">
           <CardTitle className="flex items-center gap-2 text-lg">
             <ShoppingCart className="h-5 w-5" /> Aksi Cepat
@@ -75,7 +75,7 @@ export default function Page() {
       </Card>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+        <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
           <CardHeader className="border-b">
             <CardTitle className="flex items-center gap-2 text-lg">
               <CreditCard className="h-5 w-5" /> Total Pembelian
@@ -86,7 +86,7 @@ export default function Page() {
             <div className="text-3xl font-bold">3</div>
           </CardContent>
         </Card>
-        <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+        <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
           <CardHeader className="border-b">
             <CardTitle className="flex items-center gap-2 text-lg">
               <KeyRound className="h-5 w-5" /> Kode Aktif
@@ -97,7 +97,7 @@ export default function Page() {
             <div className="text-3xl font-bold">2</div>
           </CardContent>
         </Card>
-        <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+        <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
           <CardHeader className="border-b">
             <CardTitle className="flex items-center gap-2 text-lg">
               <Clock className="h-5 w-5" /> Pembayaran Pending
@@ -110,7 +110,7 @@ export default function Page() {
         </Card>
       </div>
 
-      <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
         <CardHeader className="border-b">
           <CardTitle className="text-lg">Transaksi Terbaru</CardTitle>
           <CardDescription>3 transaksi terakhir Anda</CardDescription>

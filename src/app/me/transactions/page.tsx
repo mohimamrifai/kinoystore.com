@@ -3,8 +3,8 @@ import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
 import { CheckCircle2, Clock, XCircle } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 type Transaksi = {
   id: string
@@ -21,14 +21,15 @@ const transaksiDummy: Transaksi[] = [
 ]
 
 export default function Page() {
+  const router = useRouter()
   return (
-    <section>
-      <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
-        <CardHeader className="border-b">
+    <section className="min-w-0 w-full max-w-full">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900 shadow-sm border-gray-200 dark:border-neutral-800 py-4 md:py-6">
+        <CardHeader className="border-b px-4 md:px-6">
           <CardTitle className="text-lg">Riwayat Transaksi</CardTitle>
           <CardDescription>Daftar transaksi terbaru Anda</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-4 md:px-6">
           <Table>
             <TableHeader>
               <TableRow>
@@ -37,12 +38,15 @@ export default function Page() {
                 <TableHead>Paket</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Total</TableHead>
-                <TableHead>Aksi</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {transaksiDummy.map((t) => (
-                <TableRow key={t.id}>
+                <TableRow
+                  key={t.id}
+                  className="cursor-pointer"
+                  onClick={() => router.push(`/me/detail?id=${encodeURIComponent(t.id)}`)}
+                >
                   <TableCell>{t.id}</TableCell>
                   <TableCell>{t.tanggal}</TableCell>
                   <TableCell>{t.paket}</TableCell>
@@ -58,11 +62,6 @@ export default function Page() {
                     )}
                   </TableCell>
                   <TableCell>{t.total}</TableCell>
-                  <TableCell>
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href={`/me/detail?id=${encodeURIComponent(t.id)}`}>Lihat Detail</Link>
-                    </Button>
-                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -72,4 +71,3 @@ export default function Page() {
     </section>
   )
 }
-

@@ -45,17 +45,17 @@ export default function Navbar() {
           <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#paket" className="rounded-full font-semibold px-3.5 py-2 text-sm">
+                <NavigationMenuLink href="/#paket" className="rounded-full font-semibold px-3.5 py-2 text-sm">
                   Paket
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#carakerja" className="rounded-full font-semibold px-3.5 py-2 text-sm">
+                <NavigationMenuLink href="/#carakerja" className="rounded-full font-semibold px-3.5 py-2 text-sm">
                   Cara Kerja
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="#kontak" className="rounded-full font-semibold px-3.5 py-2 text-sm">
+                <NavigationMenuLink href="/#kontak" className="rounded-full font-semibold px-3.5 py-2 text-sm">
                   Kontak
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -77,19 +77,19 @@ export default function Navbar() {
                 </SheetHeader>
                 <div className="px-4 py-2 grid gap-2">
                   <SheetClose asChild>
-                    <Link href="#paket" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
+                    <Link href="/#paket" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
                       <Package className="size-4" />
                       <span>Paket</span>
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
-                    <Link href="#carakerja" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
+                    <Link href="/#carakerja" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
                       <ListChecks className="size-4" />
                       <span>Cara Kerja</span>
                     </Link>
                   </SheetClose>
                   <SheetClose asChild>
-                    <Link href="#kontak" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
+                    <Link href="/#kontak" className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground">
                       <Mail className="size-4" />
                       <span>Kontak</span>
                     </Link>

@@ -3,7 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Select, SelectTrigger, SelectContent, SelectItem, SelectValue } from "@/components/ui/select"
+import { Input } from "@/components/ui/input"
 import Link from "next/link"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Suspense, useState } from "react"
@@ -58,6 +58,8 @@ function DetailContent() {
   const trx = transaksiDummy.find((t) => t.id === id)
   const kodes = id ? (kodeByInvoice[id] ?? []) : []
   const [copied, setCopied] = useState<string | null>(null)
+  const [query, setQuery] = useState<string>("")
+  const filtered = transaksiDummy.filter((t) => t.id.toLowerCase().includes(query.toLowerCase()))
 
   function download(filename: string, content: string, mime: string) {
     const blob = new Blob([content], { type: mime })
@@ -82,13 +84,13 @@ function DetailContent() {
   }
 
   return (
-    <section className="grid gap-6">
-      <Card className="rounded-2xl border bg-white dark:bg-neutral-900">
-        <CardHeader className="border-b">
+    <section className="min-w-0 w-full max-w-full grid gap-6">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900 shadow-sm border-gray-200 dark:border-neutral-800 py-4 md:py-6">
+        <CardHeader className="border-b px-4 md:px-6">
           <CardTitle className="text-lg">Detail Transaksi</CardTitle>
           <CardDescription>Informasi transaksi dan kode yang dibeli</CardDescription>
         </CardHeader>
-        <CardContent>
+        <CardContent className="px-4 md:px-6">
           {trx ? (
             <div className="grid gap-4 text-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -129,7 +131,8 @@ function DetailContent() {
                     <FileDownIcon className="h-4 w-4" /> Download .txt
                   </Button>
                 </div>
-                <Table>
+                <div className="relative w-full max-w-full min-w-0 overflow-x-auto">
+                  <Table>
                   <TableHeader>
                     <TableRow>
                       <TableHead>Kode</TableHead>
@@ -156,7 +159,8 @@ function DetailContent() {
                       </TableRow>
                     ))}
                   </TableBody>
-                </Table>
+                  </Table>
+                </div>
               </div>
               <div>
                 <Button variant="outline" asChild>
@@ -165,62 +169,76 @@ function DetailContent() {
               </div>
             </div>
           ) : (
-            <div className="grid gap-4">
-              <div className="text-sm">Pilih transaksi untuk melihat detail.</div>
-              <div className="flex items-center gap-2">
-                <Select onValueChange={(val) => router.push(`/me/detail?id=${encodeURIComponent(val)}`)}>
-                  <SelectTrigger className="w-[280px]">
-                    <SelectValue placeholder="Pilih Invoice" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    {transaksiDummy.map((t) => (
-                      <SelectItem key={t.id} value={t.id}>{t.id}</SelectItem>
-                    ))}
-                  </SelectContent>
-                </Select>
-                <Button variant="outline" asChild>
-                  <Link href="/me/transactions">Buka Riwayat</Link>
-                </Button>
-              </div>
-
-              <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead>Invoice</TableHead>
-                    <TableHead>Tanggal</TableHead>
-                    <TableHead>Paket</TableHead>
-                    <TableHead>Status</TableHead>
-                    <TableHead>Total</TableHead>
-                    <TableHead>Aksi</TableHead>
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {transaksiDummy.map((t) => (
-                    <TableRow key={t.id}>
-                      <TableCell>{t.id}</TableCell>
-                      <TableCell>{t.tanggal}</TableCell>
-                      <TableCell>{t.paket}</TableCell>
-                      <TableCell>
-                        {t.status === "success" && (
-                          <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300"><CheckCircle2Icon /> Berhasil</Badge>
+              <div className="grid gap-4">
+                <div className="text-sm">Pilih transaksi untuk melihat detail.</div>
+                <div className="grid gap-2 sm:grid-cols-[1fr_auto] items-start">
+                  <div className="relative min-w-0">
+                    <Input
+                      placeholder="Cari invoice (mis. INV-2025-0001)"
+                      value={query}
+                      onChange={(e) => setQuery(e.target.value)}
+                      className="w-full"
+                    />
+                    {query && (
+                      <div className="absolute z-10 mt-1 w-full rounded-md border bg-popover p-2 shadow-md max-h-60 overflow-auto">
+                        {filtered.length === 0 ? (
+                          <div className="text-sm text-muted-foreground px-2 py-1.5">Tidak ada hasil</div>
+                        ) : (
+                          filtered.map((t) => (
+                            <button
+                              key={t.id}
+                              className="w-full text-left px-2 py-1.5 rounded hover:bg-accent hover:text-accent-foreground"
+                              onClick={() => router.push(`/me/detail?id=${encodeURIComponent(t.id)}`)}
+                            >
+                              {t.id}
+                            </button>
+                          ))
                         )}
-                        {t.status === "pending" && (
-                          <Badge variant="outline" className="text-amber-700 dark:text-amber-300"><ClockIcon /> Pending</Badge>
-                        )}
-                        {t.status === "failed" && (
-                          <Badge variant="outline" className="text-red-700 dark:text-red-300"><XCircleIcon /> Gagal</Badge>
-                        )}
-                      </TableCell>
-                      <TableCell>{t.total}</TableCell>
-                      <TableCell>
-                        <Button variant="outline" size="sm" asChild>
-                          <Link href={`/me/detail?id=${encodeURIComponent(t.id)}`}>Lihat Detail</Link>
-                        </Button>
-                      </TableCell>
+                      </div>
+                    )}
+                  </div>
+                  <Button variant="outline" className="w-full sm:w-auto" asChild>
+                    <Link href="/me/transactions">Buka Riwayat</Link>
+                  </Button>
+                </div>
+              <div className="relative w-full max-w-full min-w-0 overflow-x-auto">
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Invoice</TableHead>
+                      <TableHead>Tanggal</TableHead>
+                      <TableHead>Paket</TableHead>
+                      <TableHead>Status</TableHead>
+                      <TableHead>Total</TableHead>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
+                  </TableHeader>
+                  <TableBody>
+                    {transaksiDummy.map((t) => (
+                      <TableRow
+                        key={t.id}
+                        className="cursor-pointer"
+                        onClick={() => router.push(`/me/detail?id=${encodeURIComponent(t.id)}`)}
+                      >
+                        <TableCell>{t.id}</TableCell>
+                        <TableCell>{t.tanggal}</TableCell>
+                        <TableCell>{t.paket}</TableCell>
+                        <TableCell>
+                          {t.status === "success" && (
+                            <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300"><CheckCircle2Icon /> Berhasil</Badge>
+                          )}
+                          {t.status === "pending" && (
+                            <Badge variant="outline" className="text-amber-700 dark:text-amber-300"><ClockIcon /> Pending</Badge>
+                          )}
+                          {t.status === "failed" && (
+                            <Badge variant="outline" className="text-red-700 dark:text-red-300"><XCircleIcon /> Gagal</Badge>
+                          )}
+                        </TableCell>
+                        <TableCell>{t.total}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
             </div>
           )}
         </CardContent>

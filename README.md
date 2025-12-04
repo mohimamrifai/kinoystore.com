@@ -1,3 +1,22 @@
+- set up prisma dan postgress untuk database
+    - install prisma dan postgress
+    - init prisma
+    - buat model model database
+    - buat file env untuk prisma connection string
+- set up model model database
+    - buat model model database
+- set up nodemailer untuk mengirim email
+    - install nodemailer
+    - set up nodemailer account
+- Set up the next auth untuk login dan register
+    - install next auth
+    - set up next auth account
+- set up midtrans untuk pembayaran
+    - install midtrans sdk
+    - set up midtrans account
+    - set up midtrans notification endpoint
+
+
 Rangkuman Project – Website Penjualan Digital Product (Redfinger)
 
 1. Identitas & Ruang Lingkup Project

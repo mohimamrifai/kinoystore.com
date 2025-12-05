@@ -55,6 +55,10 @@ export default function Hero() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
           variants={{ hidden: { opacity: 0, y: 24 }, visible: { opacity: 1, y: 0 } }}
         >
+          <div className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]">
+            <div className="absolute -top-20 -left-16 h-80 w-80 rounded-full bg-linear-to-tr from-[#ff731a]/50 to-[#ff731a]/50 dark:from-[#ff731a]/55 dark:to-[#ff731a]/55 blur-2xl md:blur-3xl saturate-150" />
+            <div className="absolute -bottom-24 -right-12 h-88 w-88 rounded-full bg-linear-to-tr from-[#ff731a]/40 to-[#ff731a]/40 dark:from-[#ff731a]/45 dark:to-[#ff731a]/45 blur-2xl md:blur-3xl ring-1 ring-inset ring-[#ff731a]/10" />
+          </div>
           <Image
             src="/hero.png"
             alt="Ilustrasi layanan Redfinger"

@@ -33,7 +33,7 @@ export default function Page() {
               <TableRow>
                 <TableHead>Invoice</TableHead>
                 <TableHead>Tanggal</TableHead>
-                <TableHead>Paket</TableHead>
+                <TableHead>Produk</TableHead>
                 <TableHead>Status</TableHead>
                 <TableHead>Total</TableHead>
               </TableRow>

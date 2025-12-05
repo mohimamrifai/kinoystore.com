@@ -23,21 +23,31 @@ import { HomeIcon, PackageIcon, UsersIcon, ShoppingCartIcon, BarChart2Icon, Sett
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
   return (
-    <SidebarProvider>
+    <SidebarProvider
+      style={
+        {
+          "--sidebar-accent": "#ff731a",
+          "--sidebar-accent-foreground": "#ffffff",
+          "--sidebar-ring": "#ff731a",
+          "--sidebar-primary": "#ff731a",
+          "--sidebar-primary-foreground": "#ffffff",
+        } as React.CSSProperties
+      }
+    >
       <div className="flex min-h-svh w-full">
         <Sidebar>
           <SidebarHeader>
             <div className="px-2 py-1">
-              <Link href="/" className="font-semibold tracking-tight">kinoystore.com</Link>
-              <div className="text-xs text-muted-foreground">Admin Panel</div>
+              <Link href="/" className="font-semibold tracking-tight text-base lg:text-lg">kinoystore.com</Link>
+              <div className="text-xs lg:text-sm text-muted-foreground">Admin Panel</div>
             </div>
           </SidebarHeader>
           <SidebarContent>
             <SidebarGroup>
-              <SidebarGroupLabel>Menu</SidebarGroupLabel>
+              <SidebarGroupLabel className="text-sm lg:text-base">Menu</SidebarGroupLabel>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname === "/dashboard"}>
+                  <SidebarMenuButton asChild isActive={pathname === "/dashboard"} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard">
                       <HomeIcon />
                       <span>Dashboard</span>
@@ -45,7 +55,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/products")}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/products")} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard/products">
                       <PackageIcon />
                       <span>Produk</span>
@@ -53,7 +63,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/transactions")}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/transactions")} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard/transactions">
                       <ShoppingCartIcon />
                       <span>Transaksi</span>
@@ -61,7 +71,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/users")}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/users")} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard/users">
                       <UsersIcon />
                       <span>User</span>
@@ -69,7 +79,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/reports")}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/reports")} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard/reports">
                       <BarChart2Icon />
                       <span>Laporan</span>
@@ -77,7 +87,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
                   </SidebarMenuButton>
                 </SidebarMenuItem>
                 <SidebarMenuItem>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/settings")}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith("/dashboard/settings")} className="md:text-sm lg:text-base md:h-9 lg:h-10">
                     <Link href="/dashboard/settings">
                       <SettingsIcon />
                       <span>Pengaturan</span>
@@ -104,7 +114,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
               </div>
             </div>
           </header>
-          <div className="p-3 sm:p-4 lg:p-6">
+          <div className="p-3 sm:p-4 lg:p-6 pb-20">
             {children}
           </div>
         </SidebarInset>

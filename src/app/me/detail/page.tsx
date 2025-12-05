@@ -8,7 +8,7 @@ import Link from "next/link"
 import { useSearchParams, useRouter } from "next/navigation"
 import { Suspense, useState } from "react"
 import { Spinner } from "@/components/ui/spinner"
-import { CheckCircle2 as CheckCircle2Icon, Clock as ClockIcon, XCircle as XCircleIcon, FileDown as FileDownIcon, Copy as CopyIcon, Check as CheckIcon } from "lucide-react"
+import { FileText as FileTextIcon, FileDown as FileDownIcon, Copy as CopyIcon, Check as CheckIcon } from "lucide-react"
 
 type Transaksi = {
   id: string
@@ -85,12 +85,12 @@ function DetailContent() {
 
   return (
     <section className="min-w-0 w-full max-w-full grid gap-6">
-      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900 shadow-sm border-gray-200 dark:border-neutral-800 py-4 md:py-6">
-        <CardHeader className="border-b px-4 md:px-6">
-          <CardTitle className="text-lg">Detail Transaksi</CardTitle>
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
+        <CardHeader className="border-b">
+          <CardTitle className="flex items-center gap-2 text-lg"><FileTextIcon className="h-5 w-5" /> Detail Transaksi</CardTitle>
           <CardDescription>Informasi transaksi dan kode yang dibeli</CardDescription>
         </CardHeader>
-        <CardContent className="px-4 md:px-6">
+        <CardContent>
           {trx ? (
             <div className="grid gap-4 text-sm">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -114,13 +114,13 @@ function DetailContent() {
                   <div className="text-muted-foreground">Status</div>
                   <div>
                     {trx.status === "success" && (
-                      <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300"><CheckCircle2Icon /> Berhasil</Badge>
+                      <Badge variant="default" className="border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Berhasil</Badge>
                     )}
                     {trx.status === "pending" && (
-                      <Badge variant="outline" className="text-amber-700 dark:text-amber-300"><ClockIcon /> Pending</Badge>
+                      <Badge variant="default" className="border-transparent bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Pending</Badge>
                     )}
                     {trx.status === "failed" && (
-                      <Badge variant="outline" className="text-red-700 dark:text-red-300"><XCircleIcon /> Gagal</Badge>
+                      <Badge variant="default" className="border-transparent bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Gagal</Badge>
                     )}
                   </div>
                 </div>
@@ -224,13 +224,13 @@ function DetailContent() {
                         <TableCell>{t.paket}</TableCell>
                         <TableCell>
                           {t.status === "success" && (
-                            <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300"><CheckCircle2Icon /> Berhasil</Badge>
+                            <Badge variant="default" className="border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Berhasil</Badge>
                           )}
                           {t.status === "pending" && (
-                            <Badge variant="outline" className="text-amber-700 dark:text-amber-300"><ClockIcon /> Pending</Badge>
+                            <Badge variant="default" className="border-transparent bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Pending</Badge>
                           )}
                           {t.status === "failed" && (
-                            <Badge variant="outline" className="text-red-700 dark:text-red-300"><XCircleIcon /> Gagal</Badge>
+                            <Badge variant="default" className="border-transparent bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Gagal</Badge>
                           )}
                         </TableCell>
                         <TableCell>{t.total}</TableCell>

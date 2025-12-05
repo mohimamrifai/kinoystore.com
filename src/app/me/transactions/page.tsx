@@ -1,9 +1,7 @@
 "use client"
-import Link from "next/link"
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
-import { CheckCircle2, Clock, XCircle } from "lucide-react"
 import { useRouter } from "next/navigation"
 
 type Transaksi = {
@@ -24,12 +22,12 @@ export default function Page() {
   const router = useRouter()
   return (
     <section className="min-w-0 w-full max-w-full">
-      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900 shadow-sm border-gray-200 dark:border-neutral-800 py-4 md:py-6">
-        <CardHeader className="border-b px-4 md:px-6">
+      <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
+        <CardHeader className="border-b">
           <CardTitle className="text-lg">Riwayat Transaksi</CardTitle>
           <CardDescription>Daftar transaksi terbaru Anda</CardDescription>
         </CardHeader>
-        <CardContent className="px-4 md:px-6">
+        <CardContent>
           <Table>
             <TableHeader>
               <TableRow>
@@ -52,13 +50,13 @@ export default function Page() {
                   <TableCell>{t.paket}</TableCell>
                   <TableCell>
                     {t.status === "success" && (
-                      <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300"><CheckCircle2 /> Berhasil</Badge>
+                      <Badge variant="default" className="border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Berhasil</Badge>
                     )}
                     {t.status === "pending" && (
-                      <Badge variant="outline" className="text-amber-700 dark:text-amber-300"><Clock /> Pending</Badge>
+                      <Badge variant="default" className="border-transparent bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Pending</Badge>
                     )}
                     {t.status === "failed" && (
-                      <Badge variant="outline" className="text-red-700 dark:text-red-300"><XCircle /> Gagal</Badge>
+                      <Badge variant="default" className="border-transparent bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Gagal</Badge>
                     )}
                   </TableCell>
                   <TableCell>{t.total}</TableCell>

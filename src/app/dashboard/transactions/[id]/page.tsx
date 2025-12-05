@@ -40,7 +40,7 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
             <div className="text-sm text-muted-foreground">Tanggal</div>
             <div>{transaksi?.tanggal ?? "-"}</div>
 
-            <div className="text-sm text-muted-foreground">Paket</div>
+            <div className="text-sm text-muted-foreground">Produk</div>
             <div>{transaksi?.paket ?? "-"}</div>
 
             <div className="text-sm text-muted-foreground">Status</div>

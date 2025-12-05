@@ -4,7 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import Link from "next/link"
-import { Mail, User, ShoppingCart, ListOrdered, KeyRound, Clock, CreditCard } from "lucide-react"
+import { Mail, User, ShoppingCart, ListOrdered, KeyRound, Clock, CreditCard, History } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 
 type Transaksi = {
@@ -22,6 +22,14 @@ const transaksiDummy: Transaksi[] = [
 ]
 
 export default function Page() {
+  const totalNominalBerhasil = transaksiDummy
+    .filter((t) => t.status === "success")
+    .reduce((sum, t) => sum + parseInt(t.total.replace(/[^\d]/g, ""), 10), 0)
+  const formatRupiah = new Intl.NumberFormat("id-ID", {
+    style: "currency",
+    currency: "IDR",
+    maximumFractionDigits: 0,
+  }).format
   return (
     <section className="grid gap-6">
       <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
@@ -80,12 +88,14 @@ export default function Page() {
             <CardTitle className="flex items-center gap-2 text-lg">
               <CreditCard className="h-5 w-5" /> Total Pembelian
             </CardTitle>
-            <CardDescription>Ringkasan transaksi yang berhasil</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-3xl font-bold">3</div>
-          </CardContent>
-        </Card>
+          <CardDescription>Ringkasan transaksi yang berhasil</CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="flex items-baseline gap-3">
+            <div className="text-3xl font-bold">{formatRupiah(totalNominalBerhasil)}</div>
+          </div>
+        </CardContent>
+      </Card>
         <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
           <CardHeader className="border-b">
             <CardTitle className="flex items-center gap-2 text-lg">
@@ -112,7 +122,9 @@ export default function Page() {
 
       <Card className="min-w-0 rounded-2xl border bg-white dark:bg-neutral-900">
         <CardHeader className="border-b">
-          <CardTitle className="text-lg">Transaksi Terbaru</CardTitle>
+          <CardTitle className="flex items-center gap-2 text-lg">
+            <History className="h-5 w-5" /> Transaksi Terbaru
+          </CardTitle>
           <CardDescription>3 transaksi terakhir Anda</CardDescription>
         </CardHeader>
         <CardContent>
@@ -134,23 +146,23 @@ export default function Page() {
                   <TableCell>{t.tanggal}</TableCell>
                   <TableCell>{t.paket}</TableCell>
                   <TableCell>
-                    {t.status === "success" && (
-                      <Badge variant="outline" className="text-emerald-700 dark:text-emerald-300">Berhasil</Badge>
-                    )}
-                    {t.status === "pending" && (
-                      <Badge variant="outline" className="text-amber-700 dark:text-amber-300">Pending</Badge>
-                    )}
-                    {t.status === "failed" && (
-                      <Badge variant="outline" className="text-red-700 dark:text-red-300">Gagal</Badge>
-                    )}
-                  </TableCell>
-                  <TableCell>{t.total}</TableCell>
-                  <TableCell>
-                    <Button variant="outline" size="sm" asChild>
-                      <Link href={`/me/detail?id=${encodeURIComponent(t.id)}`}>Lihat Detail</Link>
-                    </Button>
-                  </TableCell>
-                </TableRow>
+                  {t.status === "success" && (
+                    <Badge variant="default" className="border-transparent bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300">Berhasil</Badge>
+                  )}
+                  {t.status === "pending" && (
+                    <Badge variant="default" className="border-transparent bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300">Pending</Badge>
+                  )}
+                  {t.status === "failed" && (
+                    <Badge variant="default" className="border-transparent bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300">Gagal</Badge>
+                  )}
+                </TableCell>
+                <TableCell>{t.total}</TableCell>
+                <TableCell>
+                  <Button variant="outline" size="sm" className="text-xs" asChild>
+                    <Link href={`/me/detail?id=${encodeURIComponent(t.id)}`}>Lihat Detail</Link>
+                  </Button>
+                </TableCell>
+              </TableRow>
               ))}
             </TableBody>
           </Table>

@@ -4,6 +4,7 @@ import Keunggulan from "@/components/keunggulan";
 import CaraKerja from "@/components/cara-kerja";
 import Paket from "@/components/paket";
 import Kontak from "@/components/kontak";
+import Bantuan from "@/components/bantuan";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -15,6 +16,7 @@ export default function Home() {
       <Paket />
       <CaraKerja />
       <Kontak />
+      <Bantuan />
       <Footer />
     </div>
   );

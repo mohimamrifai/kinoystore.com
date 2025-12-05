@@ -1,42 +1,42 @@
 "use client"
 import { motion } from "framer-motion"
-import { Clock, ShieldCheck, Headphones, Zap, Rocket, Globe } from "lucide-react"
+import { Clock, ShieldCheck, Headphones, Zap, Package, CreditCard } from "lucide-react"
 
 const items = [
   {
     icon: Zap,
-    title: "Performa Tinggi",
-    desc: "Server kelas enterprise dengan NVMe SSD untuk performa maksimal dan respons super cepat.",
+    title: "Performa Cepat",
+    desc: "Nikmati performa Cloud Redfinger yang cepat, stabil, dan selalu siap digunakan 24/7 untuk game, bot, maupun aktivitas berat tanpa hambatan.",
     color: "text-rose-600 dark:text-rose-400",
   },
   {
     icon: ShieldCheck,
-    title: "Keamanan Tingkat Lanjut",
-    desc: "Enkripsi end-to-end setara militer, firewall canggih, dan pemantauan 24/7 untuk melindungi data Anda.",
+    title: "Keamanan Terjamin",
+    desc: "Setiap kode Redfinger 100% original dan tervalidasi. Sistem keamanan otomatis memastikan aktivasi aman tanpa risiko duplikasi atau penipuan.",
     color: "text-indigo-600 dark:text-indigo-400",
   },
   {
     icon: Clock,
-    title: "Uptime 99,9%",
-    desc: "Ketersediaan tinggi dijamin oleh infrastruktur enterprise dengan sistem redundansi di data center tier-3.",
+    title: "Aktivasi Instan",
+    desc: "Kode langsung dikirim ke dashboard dan email Anda dalam hitungan detik setelah pembayaran terkonfirmasi—tanpa perlu menunggu admin.",
     color: "text-amber-600 dark:text-amber-400",
   },
   {
     icon: Headphones,
-    title: "Dukungan Ahli 24/7",
-    desc: "Tim teknis profesional siap membantu via live chat, email, dan telepon kapan pun.",
+    title: "Support Responsif",
+    desc: "Tim kami siap membantu dengan cepat melalui Discord & Whatsapp untuk memastikan pengalaman pembelian tetap lancar dan nyaman.",
     color: "text-emerald-600 dark:text-emerald-400",
   },
   {
-    icon: Rocket,
-    title: "Deploy Instan",
-    desc: "Provisioning kilat siap dalam menit melalui sistem otomatis setelah pembayaran terkonfirmasi.",
+    icon: Package,
+    title: "Pilihan Lengkap",
+    desc: "Tersedia berbagai grade, durasi, serta opsi versi Android, sehingga Anda bisa memilih produk Redfinger sesuai kebutuhan Anda.",
     color: "text-sky-600 dark:text-sky-400",
   },
   {
-    icon: Globe,
-    title: "Akses Global",
-    desc: "Akses dari mana saja dengan koneksi cepat dan latensi sangat rendah di berbagai lokasi.",
+    icon: CreditCard,
+    title: "Harga Transparan",
+    desc: "Proses pembayaran aman, harga jelas tanpa biaya tersembunyi, dan checkout dibuat sederhana agar Anda dapat bertransaksi dengan nyaman.",
     color: "text-violet-600 dark:text-violet-400",
   },
 ]
@@ -69,14 +69,14 @@ export default function Keunggulan() {
           {items.map((item, i) => (
             <motion.div
               key={i}
-              className="group rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-8 shadow-sm transition hover:shadow-md hover:border-gray-400 dark:hover:border-neutral-500 hover:bg-gray-50 dark:hover:bg-neutral-800"
+              className="group rounded-2xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md p-8 shadow-sm transition hover:shadow-[0_10px_40px_rgba(147,51,234,0.15)] hover:-translate-y-0.5"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
             >
               <div className="flex flex-col items-center gap-4 text-center">
-                <div className="shrink-0 w-16 aspect-square rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                <div className="shrink-0 w-16 aspect-square rounded-full flex items-center justify-center bg-white/30 dark:bg-white/10 backdrop-blur ring-1 ring-inset ring-white/40 dark:ring-white/10">
                   <item.icon className={`h-8 w-8 ${item.color}`} />
                 </div>
                 <div>

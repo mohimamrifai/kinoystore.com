@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Mail, Phone, MessageCircle } from "lucide-react"
+import { Mail, MessageCircle, MessageSquare } from "lucide-react"
 
 // Left column shows plain contact information per provided example
 
@@ -65,18 +65,7 @@ export default function Kontak() {
                   </div>
                 </div>
               </a>
-              <a href="tel:+628000000000" className="block group">
-                <div className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-5 flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <Phone className="h-6 w-6 text-red-600 dark:text-red-400" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="text-sm text-gray-700 dark:text-gray-300">Telepon</div>
-                    <div className="text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-red-400">+62 800 000 0000</div>
-                  </div>
-                </div>
-              </a>
-              <a href="https://wa.me/628000000000" target="_blank" rel="noopener noreferrer" className="block group"> 
+              <a href="https://wa.me/628000000000" target="_blank" rel="noopener noreferrer" className="block group">
                 <div className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-5 flex items-center gap-4">
                   <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
                     <MessageCircle className="h-6 w-6 text-red-600 dark:text-red-400" />
@@ -84,6 +73,17 @@ export default function Kontak() {
                   <div className="flex-1">
                     <div className="text-sm text-gray-700 dark:text-gray-300">WhatsApp</div>
                     <div className="text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-red-400">+62 800 000 0000</div>
+                  </div>
+                </div>
+              </a>
+              <a href="https://discord.gg/kinoystore" target="_blank" rel="noopener noreferrer" className="block group">
+                <div className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-5 flex items-center gap-4">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                    <MessageSquare className="h-6 w-6 text-red-600 dark:text-red-400" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="text-sm text-gray-700 dark:text-gray-300">Discord</div>
+                    <div className="text-lg font-semibold text-gray-900 dark:text-gray-100 group-hover:text-red-600 dark:group-hover:text-red-400">discord.gg/kinoystore</div>
                   </div>
                 </div>
               </a>

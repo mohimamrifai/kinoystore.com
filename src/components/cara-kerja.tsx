@@ -27,7 +27,7 @@ export default function CaraKerja() {
             <div className="container mx-auto px-4">
                 <div className="text-center mb-12">
                     <motion.h2
-                        className="text-3xl sm:text-5xl font-bold leading-snug text-center inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300"
+                        className="text-3xl sm:text-5xl font-bold leading-snug text-center inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-[#ff731a] to-[#ff731a] dark:from-white dark:via-[#ff731a] dark:to-[#ff731a]"
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.2 }}
@@ -56,10 +56,10 @@ export default function CaraKerja() {
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
                         >
-                            <div className="w-20 h-20 rounded-full flex items-center justify-center mb-8 shadow-lg bg-red-600 dark:bg-red-700">
+                            <div className="w-20 h-20 rounded-full flex items-center justify-center mb-8 shadow-lg bg-[#ff731a]">
                                 <s.icon className="h-10 w-10 text-white" />
                             </div>
-                            <h3 className="text-2xl md:text-3xl font-bold mb-3 text-red-600 dark:text-red-400">
+                            <h3 className="text-2xl md:text-3xl font-bold mb-3 text-[#ff731a]">
                                 {i === 0 ? "Pilih Produk Ideal" : i === 1 ? "Bayar Aman & Cepat" : "Kode Instan Terkirim"}
                             </h3>
                             <p className="text-lg md:text-xl text-gray-700 dark:text-gray-300 font-normal leading-relaxed max-w-xs mx-auto">
@@ -76,7 +76,7 @@ export default function CaraKerja() {
                     viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                 >
-                    <Link href="/#paket" className="inline-flex items-center gap-3 bg-red-600 dark:bg-red-700 text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                    <Link href="/#paket" className="inline-flex items-center gap-3 bg-[#ff731a] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-[#e86615]">
                         Mulai Sekarang
                         <ArrowUp className="h-5 w-5" />
                     </Link>

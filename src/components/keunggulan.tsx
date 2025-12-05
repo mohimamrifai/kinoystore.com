@@ -7,37 +7,37 @@ const items = [
     icon: Zap,
     title: "Performa Cepat",
     desc: "Nikmati performa Cloud Redfinger yang cepat, stabil, dan selalu siap digunakan 24/7 untuk game, bot, maupun aktivitas berat tanpa hambatan.",
-    color: "text-rose-600 dark:text-rose-400",
+    color: "text-[#ff731a]",
   },
   {
     icon: ShieldCheck,
     title: "Keamanan Terjamin",
     desc: "Setiap kode Redfinger 100% original dan tervalidasi. Sistem keamanan otomatis memastikan aktivasi aman tanpa risiko duplikasi atau penipuan.",
-    color: "text-indigo-600 dark:text-indigo-400",
+    color: "text-[#ff731a]",
   },
   {
     icon: Clock,
     title: "Aktivasi Instan",
     desc: "Kode langsung dikirim ke dashboard dan email Anda dalam hitungan detik setelah pembayaran terkonfirmasi—tanpa perlu menunggu admin.",
-    color: "text-amber-600 dark:text-amber-400",
+    color: "text-[#ff731a]",
   },
   {
     icon: Headphones,
     title: "Support Responsif",
     desc: "Tim kami siap membantu dengan cepat melalui Discord & Whatsapp untuk memastikan pengalaman pembelian tetap lancar dan nyaman.",
-    color: "text-emerald-600 dark:text-emerald-400",
+    color: "text-[#ff731a]",
   },
   {
     icon: Package,
     title: "Pilihan Lengkap",
     desc: "Tersedia berbagai grade, durasi, serta opsi versi Android, sehingga Anda bisa memilih produk Redfinger sesuai kebutuhan Anda.",
-    color: "text-sky-600 dark:text-sky-400",
+    color: "text-[#ff731a]",
   },
   {
     icon: CreditCard,
     title: "Harga Transparan",
     desc: "Proses pembayaran aman, harga jelas tanpa biaya tersembunyi, dan checkout dibuat sederhana agar Anda dapat bertransaksi dengan nyaman.",
-    color: "text-violet-600 dark:text-violet-400",
+    color: "text-[#ff731a]",
   },
 ]
 
@@ -58,7 +58,7 @@ export default function Keunggulan() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold text-center">
-            <span className="block text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kenapa Memilih Kami?</span>
+            <span className="block text-transparent bg-clip-text bg-linear-to-r from-black via-[#ff731a] to-[#ff731a] dark:from-white dark:via-[#ff731a] dark:to-[#ff731a]">Kenapa Memilih Kami?</span>
           </h2>
           <p className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg">
             Pengalaman beli kode Redfinger yang aman, cepat, dan transparan.
@@ -69,7 +69,7 @@ export default function Keunggulan() {
           {items.map((item, i) => (
             <motion.div
               key={i}
-              className="group rounded-2xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md p-8 shadow-sm transition hover:shadow-[0_10px_40px_rgba(147,51,234,0.15)] hover:-translate-y-0.5"
+              className="group rounded-2xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md p-8 shadow-sm transition hover:shadow-[0_10px_40px_rgba(255,115,26,0.15)] hover:-translate-y-0.5"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}

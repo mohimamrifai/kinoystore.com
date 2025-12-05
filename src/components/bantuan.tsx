@@ -15,7 +15,7 @@ export default function Bantuan() {
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
-          <span className="block text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Butuh Bantuan?</span>
+          <span className="block text-transparent bg-clip-text bg-linear-to-r from-[#ff731a] to-[#ff731a] dark:from-[#ff731a] dark:to-[#ff731a]">Butuh Bantuan?</span>
         </motion.h2>
         <motion.p
           className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg"
@@ -33,7 +33,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <ShieldCheck className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <ShieldCheck className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Apa itu Redfinger dan apa yang Anda dapatkan?
                 </span>
@@ -46,7 +46,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <CreditCard className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <CreditCard className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Bagaimana alur beli hingga kode diterima?
                 </span>
@@ -59,7 +59,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <Clock className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <Clock className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Berapa lama aktivasi berlangsung?
                 </span>
@@ -72,7 +72,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <Mail className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <Mail className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Tidak menerima kode? Apa yang harus dilakukan?
                 </span>
@@ -85,7 +85,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <HelpCircle className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <HelpCircle className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Metode pembayaran yang didukung?
                 </span>
@@ -98,7 +98,7 @@ export default function Bantuan() {
               <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
                 <span className="inline-flex items-center gap-3">
                   <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <AlertCircle className="size-5 sm:size-6 text-red-600 dark:text-red-400" />
+                    <AlertCircle className="size-5 sm:size-6 text-[#ff731a]" />
                   </span>
                   Garansi dan bantuan jika kode bermasalah
                 </span>

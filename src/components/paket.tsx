@@ -98,8 +98,8 @@ export default function Paket() {
   return (
     <section id="paket" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28">
       <div className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]">
-        <div className="absolute -top-28 -left-20 h-72 w-72 bg-linear-to-tr from-rose-500/30 to-indigo-500/30 blur-3xl" />
-        <div className="absolute -bottom-28 -right-16 h-80 w-80 bg-linear-to-tr from-indigo-500/30 to-rose-500/30 blur-3xl" />
+        <div className="absolute -top-28 -left-20 h-72 w-72 bg-linear-to-tr from-[#ff731a]/30 to-[#ff731a]/30 blur-3xl" />
+        <div className="absolute -bottom-28 -right-16 h-80 w-80 bg-linear-to-tr from-[#ff731a]/30 to-[#ff731a]/30 blur-3xl" />
       </div>
       <div className="mx-auto max-w-6xl px-6 py-12">
         <motion.h2
@@ -110,7 +110,7 @@ export default function Paket() {
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           Pilih Produk Sesuai
-          <span className="inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-rose-600 to-indigo-600 dark:from-white dark:via-rose-400 dark:to-indigo-300">Kebutuhan anda!</span>
+          <span className="inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-[#ff731a] to-[#ff731a] dark:from-white dark:via-[#ff731a] dark:to-[#ff731a]">Kebutuhan anda!</span>
         </motion.h2>
         <motion.p
           className="mt-2 text-lg text-center text-gray-600 dark:text-gray-300"
@@ -150,7 +150,7 @@ export default function Paket() {
                   </CardHeader>
                   <CardContent>
                     <div className="text-sm sm:text-base text-gray-500 dark:text-gray-400 line-through">{p.hargaCoret}</div>
-                    <div className="text-3xl sm:text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-rose-600 to-indigo-600 dark:from-rose-400 dark:to-indigo-300">{p.harga}</div>
+                    <div className="text-3xl sm:text-4xl font-semibold tracking-tight text-transparent bg-clip-text bg-linear-to-r from-[#ff731a] to-[#ff731a] dark:from-[#ff731a] dark:to-[#ff731a]">{p.harga}</div>
                     <div className="mt-3 flex items-center gap-2">
                       {p.bestSeller && (
                         <Badge className="inline-flex items-center gap-1 bg-amber-500 text-white hover:bg-amber-600">
@@ -167,14 +167,14 @@ export default function Paket() {
                     <ul className="mt-4 space-y-2">
                       {p.spesifikasi.map((s, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm text-gray-700 dark:text-gray-300">
-                          <CheckCircle2 className="h-4 w-4 text-emerald-600 dark:text-emerald-400" />
+                          <CheckCircle2 className="h-4 w-4 text-[#ff731a]" />
                           <span>{s}</span>
                         </li>
                       ))}
                     </ul>
                   </CardContent>
                   <CardFooter className="border-t">
-                    <Button size="lg" className="w-full text-base bg-red-600 text-white hover:bg-red-700 transition-colors" asChild>
+                    <Button size="lg" className="w-full text-base bg-[#ff731a] text-white hover:bg-[#e86615] transition-colors" asChild>
                       <Link href={`/checkout?paket=${p.id}`}>Beli Sekarang</Link>
                     </Button>
                   </CardFooter>
@@ -186,7 +186,7 @@ export default function Paket() {
         <div className="mt-8 flex justify-center">
           <Link
             href="/paket"
-            className="inline-flex items-center gap-3 bg-red-600 dark:bg-red-700 text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+            className="inline-flex items-center gap-3 bg-[#ff731a] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-[#e86615]"
           >
             Lihat Semua Paket
             <ArrowDown className="h-5 w-5" />

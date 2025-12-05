@@ -3,7 +3,8 @@ import Link from "next/link"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import { usePathname } from "next/navigation"
 import {
   NavigationMenu,
   NavigationMenuList,
@@ -23,6 +24,48 @@ import { Menu, Package, ListChecks, Mail, Home, HelpCircle } from "lucide-react"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
+  const pathname = usePathname()
+  const [activeSection, setActiveSection] = useState<string>("home")
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setActiveSection("home")
+      return
+    }
+    const setFromHash = () => {
+      const h = window.location.hash.replace("#", "")
+      setActiveSection(h || "home")
+    }
+    setFromHash()
+
+    const ids = ["paket", "carakerja", "kontak", "bantuan"]
+    const elements = ids
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => !!el)
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+        if (visible.length) {
+          const id = (visible[0].target as HTMLElement).id
+          setActiveSection(id)
+        } else if (window.scrollY < 80) {
+          setActiveSection("home")
+        }
+      },
+      { rootMargin: "0px 0px -50% 0px", threshold: [0.25, 0.5, 0.75] }
+    )
+
+    elements.forEach((el) => observer.observe(el))
+    window.addEventListener("hashchange", setFromHash)
+    return () => {
+      window.removeEventListener("hashchange", setFromHash)
+      elements.forEach((el) => observer.unobserve(el))
+      observer.disconnect()
+    }
+  }, [pathname])
   return (
     <motion.header
       className="sticky top-0 z-40 bg-white/70 dark:bg-black/50 backdrop-blur border-b border-gray-200 dark:border-neutral-800 shadow-md"
@@ -47,27 +90,42 @@ export default function Navbar() {
           <NavigationMenu viewport={false}>
             <NavigationMenuList>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/" className="rounded-full font-semibold px-4 py-2 text-base transition-colors hover:text-red-600 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-linear-to-r from-rose-500 to-indigo-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full">
+                <NavigationMenuLink
+                  href="/"
+                  className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "home" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
+                >
                   Beranda
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/#paket" className="rounded-full font-semibold px-4 py-2 text-base transition-colors hover:text-red-600 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-linear-to-r from-rose-500 to-indigo-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full">
+                <NavigationMenuLink
+                  href="/#paket"
+                  className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "paket" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
+                >
                   Produk
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/#carakerja" className="rounded-full font-semibold px-4 py-2 text-base transition-colors hover:text-red-600 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-linear-to-r from-rose-500 to-indigo-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full">
+                <NavigationMenuLink
+                  href="/#carakerja"
+                  className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "carakerja" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
+                >
                   Cara Kerja
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/#kontak" className="rounded-full font-semibold px-4 py-2 text-base transition-colors hover:text-red-600 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-linear-to-r from-rose-500 to-indigo-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full">
+                <NavigationMenuLink
+                  href="/#kontak"
+                  className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "kontak" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
+                >
                   Kontak
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuLink href="/#bantuan" className="rounded-full font-semibold px-4 py-2 text-base transition-colors hover:text-red-600 relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:w-0 after:bg-linear-to-r from-rose-500 to-indigo-500 after:transition-all after:duration-300 hover:after:w-full after:rounded-full">
+                <NavigationMenuLink
+                  href="/#bantuan"
+                  className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "bantuan" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
+                >
                   Bantuan
                 </NavigationMenuLink>
               </NavigationMenuItem>
@@ -220,10 +278,10 @@ export default function Navbar() {
                   </button>
                 </div>
                 <div className="px-4 pb-4 pt-2 grid grid-cols-2 gap-4">
-                  <Button variant="outline" size="sm" className="rounded-full px-4" asChild>
+                  <Button variant="outline" size="sm" className=" px-4" asChild>
                     <Link href="/login">Masuk</Link>
                   </Button>
-                  <Button variant="destructive" size="sm" className="rounded-full px-4" asChild>
+                  <Button variant="destructive" size="sm" className=" px-4 bg-[#ff731a] text-white hover:bg-[#e86615]" asChild>
                     <Link href="/register">Daftar</Link>
                   </Button>
                 </div>
@@ -231,10 +289,10 @@ export default function Navbar() {
             </Sheet>
           </div>
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" size="sm" className="rounded-full px-4" asChild>
+            <Button variant="outline" size="sm" className=" px-4" asChild>
               <Link href="/login">Masuk</Link>
             </Button>
-            <Button variant="destructive" size="sm" className="rounded-full px-4" asChild>
+            <Button variant="destructive" size="sm" className=" px-4 bg-[#ff731a] text-white hover:bg-[#e86615]" asChild>
               <Link href="/register">Daftar</Link>
             </Button>
           </div>

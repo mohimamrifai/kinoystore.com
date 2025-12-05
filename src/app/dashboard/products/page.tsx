@@ -4,16 +4,19 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuItem } from "@/components/ui/dropdown-menu"
 import Link from "next/link"
-import { PlusIcon, MoreVerticalIcon, EyeIcon, PencilIcon, Trash2Icon } from "lucide-react"
+import { PlusIcon, MoreVerticalIcon, EyeIcon, PencilIcon, Trash2Icon, PackageIcon } from "lucide-react"
 
 export default function Page() {
   return (
     <section className="grid gap-6">
       <Card className="min-w-0">
         <CardHeader className="flex-row items-center justify-between">
-          <div>
-            <CardTitle>Produk</CardTitle>
-            <CardDescription>Manajemen paket dan harga</CardDescription>
+          <div className="flex items-start gap-2">
+            <PackageIcon className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <CardTitle>Produk</CardTitle>
+              <CardDescription>Manajemen paket dan harga</CardDescription>
+            </div>
           </div>
           <Button asChild>
             <Link href="#"><PlusIcon className="mr-2 h-4 w-4" /> Tambah Produk</Link>

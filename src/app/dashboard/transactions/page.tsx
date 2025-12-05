@@ -3,6 +3,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/com
 import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { useRouter } from "next/navigation"
+import { ShoppingCartIcon } from "lucide-react"
 
 type Transaksi = {
   id: string
@@ -24,8 +25,13 @@ export default function Page() {
     <section className="grid gap-6">
       <Card className="min-w-0">
         <CardHeader>
-          <CardTitle>Transaksi</CardTitle>
-          <CardDescription>Daftar semua transaksi</CardDescription>
+          <div className="flex items-start gap-2">
+            <ShoppingCartIcon className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <CardTitle>Transaksi</CardTitle>
+              <CardDescription>Daftar semua transaksi</CardDescription>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <Table>

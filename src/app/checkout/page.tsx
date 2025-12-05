@@ -57,12 +57,12 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
               <CardContent className="px-4 md:px-6 grid gap-4 md:gap-6">
                 {!user && (
                   <div className="grid gap-3">
-                  <div className="text-sm text-muted-foreground">Silakan masuk atau daftar terlebih dahulu untuk melanjutkan checkout.</div>
-                  <div className="flex gap-2">
-                      <Button variant="outline" asChild>
+                    <div className="text-sm text-muted-foreground">Silakan masuk atau daftar terlebih dahulu untuk melanjutkan checkout.</div>
+                    <div className="flex gap-2">
+                      <Button size="lg" className="px-5 py-2.5 text-base bg-[#ff731a] text-white hover:bg-[#e86615] dark:bg-[#ff731a] dark:hover:bg-[#e86615] cursor-pointer" asChild>
                         <Link href="/login">Masuk</Link>
                       </Button>
-                      <Button variant="destructive" asChild>
+                      <Button size="lg" variant="outline" className="px-5 py-2.5 text-base border-[#ff731a] text-[#ff731a] hover:bg-[#ff731a]/10 dark:border-[#ff731a] dark:text-[#ff731a] cursor-pointer" asChild>
                         <Link href="/register">Daftar</Link>
                       </Button>
                     </div>
@@ -104,10 +104,12 @@ export default async function Page({ searchParams }: { searchParams: Promise<Rec
                       <div className="text-2xl font-extrabold tracking-tight">{paket.price}</div>
                     </div>
                     {!user && (
-                      <Button className="w-full" disabled>Masuk untuk Checkout</Button>
+                      <Button size="lg" className="w-full h-11 text-base bg-[#ff731a] text-white hover:bg-[#e86615] dark:bg-[#ff731a] dark:hover:bg-[#e86615] transition-colors cursor-pointer" asChild>
+                        <Link href="/login">Masuk untuk Checkout</Link>
+                      </Button>
                     )}
                     {user && (
-                      <Button className="w-full text-base bg-red-600 text-white hover:bg-red-700 transition-colors" asChild>
+                      <Button size="lg" className="w-full h-11 text-base bg-[#ff731a] text-white hover:bg-[#e86615] dark:bg-[#ff731a] dark:hover:bg-[#e86615] transition-colors cursor-pointer" asChild>
                         <Link href="/dashboard/transactions">Checkout</Link>
                       </Button>
                     )}

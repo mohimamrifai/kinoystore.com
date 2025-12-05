@@ -19,6 +19,7 @@ import {
 import { Button } from "@/components/ui/button"
 import { Breadcrumb } from "@/components/ui/breadcrumb"
 import { HomeIcon, PackageIcon, UsersIcon, ShoppingCartIcon, BarChart2Icon, SettingsIcon } from "lucide-react"
+import Image from "next/image"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
@@ -31,14 +32,20 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           "--sidebar-ring": "#ff731a",
           "--sidebar-primary": "#ff731a",
           "--sidebar-primary-foreground": "#ffffff",
+          "--primary": "#ff731a",
+          "--primary-foreground": "#ffffff",
+          "--ring": "#ff731a",
         } as React.CSSProperties
       }
     >
-      <div className="flex min-h-svh w-full">
+      <div className="flex min-h-svh w-full pb-20">
         <Sidebar>
           <SidebarHeader>
             <div className="px-2 py-1">
-              <Link href="/" className="font-semibold tracking-tight text-base lg:text-lg">kinoystore.com</Link>
+              <div className="flex items-center">
+                <Image src="/logo.png" alt="KINOY STORE" width={40} height={40} />
+                <Link href="/" className="font-semibold tracking-tight text-base lg:text-lg">KINOY STORE</Link>
+              </div>
               <div className="text-xs lg:text-sm text-muted-foreground">Admin Panel</div>
             </div>
           </SidebarHeader>
@@ -98,7 +105,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </SidebarGroup>
             <SidebarSeparator />
           </SidebarContent>
-          
+
           <SidebarRail />
         </Sidebar>
 

@@ -5,8 +5,9 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ChartContainer, ChartLegend, ChartLegendContent, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts"
+import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from "recharts"
 import Link from "next/link"
+import { QuickActions } from "@/components/quick-actions"
 import { BarChart2Icon, ShoppingCartIcon, CheckCircle2Icon, ClockIcon, XCircleIcon, PackageIcon, UsersIcon, SettingsIcon } from "lucide-react"
 
 type Transaksi = {
@@ -35,7 +36,7 @@ const penjualanHarian = [
 const chartConfig = {
   total: {
     label: "Transaksi",
-    theme: { light: "hsl(var(--chart-1))", dark: "hsl(var(--chart-1))" },
+    color: "var(--primary)",
   },
 } as const
 
@@ -49,44 +50,60 @@ export default function Page() {
   return (
     <section className="grid gap-6">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        <Card>
+        <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="text-sm">Penjualan Hari Ini</CardTitle>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center rounded-md bg-[#ff731a]/10 text-[#ff731a] h-8 w-8">
+                <BarChart2Icon className="h-4 w-4" />
+              </span>
+              <CardTitle className="text-sm">Penjualan Hari Ini</CardTitle>
+            </div>
             <CardDescription>Jumlah transaksi yang selesai</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center gap-2">
-            <BarChart2Icon className="h-5 w-5 text-muted-foreground" />
-            <div className="text-2xl font-semibold">{totalHariIni}</div>
+          <CardContent>
+            <div className="text-3xl font-bold tracking-tight">{totalHariIni}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="text-sm">Transaksi Sukses</CardTitle>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center rounded-md bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 h-8 w-8">
+                <CheckCircle2Icon className="h-4 w-4" />
+              </span>
+              <CardTitle className="text-sm">Transaksi Sukses</CardTitle>
+            </div>
             <CardDescription>Total sukses bulan ini</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center gap-2">
-            <CheckCircle2Icon className="h-5 w-5 text-emerald-600" />
-            <div className="text-2xl font-semibold">{sukses}</div>
+          <CardContent>
+            <div className="text-3xl font-bold tracking-tight">{sukses}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="text-sm">Transaksi Pending</CardTitle>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center rounded-md bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300 h-8 w-8">
+                <ClockIcon className="h-4 w-4" />
+              </span>
+              <CardTitle className="text-sm">Transaksi Pending</CardTitle>
+            </div>
             <CardDescription>Menunggu pembayaran</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center gap-2">
-            <ClockIcon className="h-5 w-5 text-amber-600" />
-            <div className="text-2xl font-semibold">{pending}</div>
+          <CardContent>
+            <div className="text-3xl font-bold tracking-tight">{pending}</div>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="hover:shadow-lg transition-shadow">
           <CardHeader>
-            <CardTitle className="text-sm">Transaksi Gagal</CardTitle>
-            <CardDescription>Pembayaran gagal atau kadaluarsa</CardDescription>
+            <div className="flex items-center gap-2">
+              <span className="inline-flex items-center justify-center rounded-md bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300 h-8 w-8">
+                <XCircleIcon className="h-4 w-4" />
+              </span>
+              <CardTitle className="text-sm">Transaksi Gagal</CardTitle>
+            </div>
+            <CardDescription>Gagal atau kadaluarsa</CardDescription>
           </CardHeader>
-          <CardContent className="flex items-center gap-2">
-            <XCircleIcon className="h-5 w-5 text-red-600" />
-            <div className="text-2xl font-semibold">{gagal}</div>
+          <CardContent>
+            <div className="text-3xl font-bold tracking-tight">{gagal}</div>
           </CardContent>
         </Card>
       </div>
@@ -98,14 +115,14 @@ export default function Page() {
         </CardHeader>
         <CardContent>
           <ChartContainer config={chartConfig} className="w-full">
-            <LineChart data={penjualanHarian} margin={{ left: 12, right: 12 }}>
+            <BarChart data={penjualanHarian} margin={{ left: 12, right: 12 }}>
               <CartesianGrid strokeDasharray="3 3" />
               <XAxis dataKey="day" tickLine={false} axisLine={false} />
               <YAxis allowDecimals={false} width={28} tickLine={false} axisLine={false} />
-              <Line type="monotone" dataKey="total" stroke="var(--color-total)" strokeWidth={2} dot={false} />
-              <ChartTooltip content={<ChartTooltipContent nameKey="total" />} />
+              <Bar dataKey="total" fill="var(--color-total)" radius={[6, 6, 0, 0]} />
+              <ChartTooltip cursor={false} content={<ChartTooltipContent nameKey="total" />} />
               <ChartLegend content={<ChartLegendContent nameKey="total" />} />
-            </LineChart>
+            </BarChart>
           </ChartContainer>
         </CardContent>
       </Card>
@@ -181,34 +198,7 @@ export default function Page() {
         </Card>
       </div>
 
-      <Card>
-        <CardHeader>
-          <CardTitle>Tindakan Cepat</CardTitle>
-          <CardDescription>Navigasi menuju fitur inti</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/products"><ShoppingCartIcon className="mr-2 h-4 w-4" /> Produk</Link>
-            </Button>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/products"><PackageIcon className="mr-2 h-4 w-4" /> Upload Kode</Link>
-            </Button>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/transactions"><BarChart2Icon className="mr-2 h-4 w-4" /> Transaksi</Link>
-            </Button>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/users"><UsersIcon className="mr-2 h-4 w-4" /> User</Link>
-            </Button>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/reports"><BarChart2Icon className="mr-2 h-4 w-4" /> Laporan</Link>
-            </Button>
-            <Button variant="outline" className="w-full" asChild>
-              <Link href="/dashboard/settings"><SettingsIcon className="mr-2 h-4 w-4" /> Pengaturan</Link>
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      <QuickActions />
     </section>
   )
 }

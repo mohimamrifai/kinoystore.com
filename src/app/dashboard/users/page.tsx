@@ -4,6 +4,7 @@ import { Table, TableHeader, TableRow, TableHead, TableBody, TableCell } from "@
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { useState } from "react"
+import { UsersIcon } from "lucide-react"
 
 type User = {
   id: string
@@ -23,8 +24,13 @@ export default function Page() {
     <section className="grid gap-6">
       <Card>
         <CardHeader>
-          <CardTitle>User</CardTitle>
-          <CardDescription>Manajemen pengguna</CardDescription>
+          <div className="flex items-start gap-2">
+            <UsersIcon className="h-5 w-5 text-primary mt-0.5" />
+            <div>
+              <CardTitle>User</CardTitle>
+              <CardDescription>Manajemen pengguna</CardDescription>
+            </div>
+          </div>
         </CardHeader>
         <CardContent>
           <Dialog open={open} onOpenChange={setOpen}>

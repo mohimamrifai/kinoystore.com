@@ -96,7 +96,7 @@ export default function Paket() {
     return () => clearInterval(interval)
   }, [])
   return (
-    <section id="paket" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28">
+    <section id="paket" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28 my-20 md:my-24">
       <div className="pointer-events-none absolute inset-0 mask-[radial-gradient(ellipse_at_center,black,transparent_70%)]">
         <div className="absolute -top-28 -left-20 h-72 w-72 bg-linear-to-tr from-[#ff731a]/30 to-[#ff731a]/30 blur-3xl" />
         <div className="absolute -bottom-28 -right-16 h-80 w-80 bg-linear-to-tr from-[#ff731a]/30 to-[#ff731a]/30 blur-3xl" />
@@ -106,7 +106,7 @@ export default function Paket() {
           className="text-3xl sm:text-5xl font-bold leading-snug text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           Pilih Produk Sesuai
@@ -116,7 +116,7 @@ export default function Paket() {
           className="mt-2 text-lg text-center text-gray-600 dark:text-gray-300"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
           Pilih grade, durasi, dan versi android yang sesuai kebutuhan Anda.
@@ -127,7 +127,7 @@ export default function Paket() {
               <motion.div
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.2 }}
+                viewport={{ once: false, amount: 0.2 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
               >
                 <Card
@@ -183,7 +183,13 @@ export default function Paket() {
             </Fragment>
           ))}
         </div>
-        <div className="mt-8 flex justify-center">
+        <motion.div
+          className="mt-8 flex justify-center"
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+        >
           <Link
             href="/paket"
             className="inline-flex items-center gap-3 bg-[#ff731a] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-[#e86615]"
@@ -191,9 +197,8 @@ export default function Paket() {
             Lihat Semua Paket
             <ArrowDown className="h-5 w-5" />
           </Link>
-        </div>
+        </motion.div>
       </div>
     </section>
   )
 }
-

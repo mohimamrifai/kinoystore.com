@@ -29,12 +29,12 @@ export default function Kontak() {
   }
 
   return (
-    <section id="kontak" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28">
+    <section id="kontak" className="relative overflow-hidden scroll-mt-24 md:scroll-mt-28 my-20 md:my-24">
       <div className="mx-auto max-w-6xl px-6 py-12">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold text-center">
@@ -49,7 +49,7 @@ export default function Kontak() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="space-y-6"
           >
@@ -93,7 +93,7 @@ export default function Kontak() {
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             className="rounded-2xl border border-gray-200 dark:border-neutral-800 bg-white/80 dark:bg-black/40 p-6"
           >

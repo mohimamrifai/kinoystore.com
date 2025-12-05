@@ -30,7 +30,7 @@ export default function CaraKerja() {
                         className="text-3xl sm:text-5xl font-bold leading-snug text-center inline-block px-1 py-1 sm:py-2 text-transparent bg-clip-text bg-linear-to-r from-black via-[#ff731a] to-[#ff731a] dark:from-white dark:via-[#ff731a] dark:to-[#ff731a]"
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.6, ease: "easeOut" }}
                     >
                         Mulai Gunakan Redfinger dengan Mudah
@@ -39,7 +39,7 @@ export default function CaraKerja() {
                         className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
                         initial={{ opacity: 0, y: 24 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.2 }}
+                        viewport={{ once: false, amount: 0.2 }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
                     >
                         Tiga langkah cepat untuk mendapatkan kode Cloud Phone Redfinger—praktis, aman, dan resmi.
@@ -53,7 +53,7 @@ export default function CaraKerja() {
                             className="flex-1 flex flex-col items-center text-center"
                             initial={{ opacity: 0, y: 24 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
+                            viewport={{ once: false, amount: 0.2 }}
                             transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
                         >
                             <div className="w-20 h-20 rounded-full flex items-center justify-center mb-8 shadow-lg bg-[#ff731a]">
@@ -73,7 +73,7 @@ export default function CaraKerja() {
                     className="text-center mt-12"
                     initial={{ opacity: 0, y: 24 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.2 }}
+                    viewport={{ once: false, amount: 0.2 }}
                     transition={{ duration: 0.6, ease: "easeOut", delay: 0.15 }}
                 >
                     <Link href="/#paket" className="inline-flex items-center gap-3 bg-[#ff731a] text-white px-6 py-3 rounded-full text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 hover:bg-[#e86615]">

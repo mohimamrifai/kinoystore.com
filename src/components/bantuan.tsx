@@ -12,7 +12,7 @@ export default function Bantuan() {
           className="text-3xl sm:text-5xl font-bold text-center"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <span className="block text-transparent bg-clip-text bg-linear-to-r from-[#ff731a] to-[#ff731a] dark:from-[#ff731a] dark:to-[#ff731a]">Butuh Bantuan?</span>
@@ -21,7 +21,7 @@ export default function Bantuan() {
           className="text-gray-600 text-center dark:text-gray-300 mt-2 text-lg"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
         >
           Jawaban cepat untuk pertanyaan yang sering ditanyakan. Jika masih perlu bantuan, tim kami siap 24/7.
@@ -30,82 +30,94 @@ export default function Bantuan() {
         <div className="mt-10">
           <Accordion type="single" collapsible className="w-full space-y-4 sm:space-y-6">
             <AccordionItem value="item-1">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <ShieldCheck className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <ShieldCheck className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Apa itu Redfinger dan apa yang Anda dapatkan?
                   </span>
-                  Apa itu Redfinger dan apa yang Anda dapatkan?
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Redfinger adalah Cloud Android resmi untuk menjalankan aplikasi di server. Membeli paket di sini berarti Anda menerima kode akses terverifikasi dengan masa aktif sesuai pilihan, siap dipakai tanpa konfigurasi rumit.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Redfinger adalah Cloud Android resmi untuk menjalankan aplikasi di server. Membeli paket di sini berarti Anda menerima kode akses terverifikasi dengan masa aktif sesuai pilihan, siap dipakai tanpa konfigurasi rumit.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
             <AccordionItem value="item-2">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <CreditCard className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <CreditCard className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Bagaimana alur beli hingga kode diterima?
                   </span>
-                  Bagaimana alur beli hingga kode diterima?
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Pilih paket, lakukan pembayaran aman, lalu kode akses dikirim otomatis ke akun dan email Anda. Masuk ke aplikasi/website Redfinger dan aktifkan sesuai petunjuk yang Anda terima.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Pilih paket, lakukan pembayaran aman, lalu kode akses dikirim otomatis ke akun dan email Anda. Masuk ke aplikasi/website Redfinger dan aktifkan sesuai petunjuk yang Anda terima.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
             <AccordionItem value="item-3">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <Clock className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <Clock className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Berapa lama aktivasi berlangsung?
                   </span>
-                  Berapa lama aktivasi berlangsung?
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Aktivasi biasanya instan (±1–3 menit) setelah pembayaran terkonfirmasi. Jika lebih lama, biasanya karena verifikasi dari penyedia pembayaran. Cek email dan riwayat transaksi Anda.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Aktivasi biasanya instan (±1–3 menit) setelah pembayaran terkonfirmasi. Jika lebih lama, biasanya karena verifikasi dari penyedia pembayaran. Cek email dan riwayat transaksi Anda.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
             <AccordionItem value="item-4">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <Mail className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <Mail className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Tidak menerima kode? Apa yang harus dilakukan?
                   </span>
-                  Tidak menerima kode? Apa yang harus dilakukan?
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Periksa folder spam, pastikan email yang terdaftar benar, dan lihat riwayat transaksi Anda. Jika tetap belum ada, hubungi kami lewat Kontak untuk bantuan cepat.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Periksa folder spam, pastikan email yang terdaftar benar, dan lihat riwayat transaksi Anda. Jika tetap belum ada, hubungi kami lewat Kontak untuk bantuan cepat.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
             <AccordionItem value="item-5">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <HelpCircle className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <HelpCircle className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Metode pembayaran yang didukung?
                   </span>
-                  Metode pembayaran yang didukung?
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Kami mendukung metode pembayaran lokal yang aman dan cepat. Detail opsi dan biaya layanan (jika ada) ditampilkan di halaman checkout.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Kami mendukung metode pembayaran lokal yang aman dan cepat. Detail opsi dan biaya layanan (jika ada) ditampilkan di halaman checkout.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
             <AccordionItem value="item-6">
-              <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
-                <span className="inline-flex items-center gap-3">
-                  <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
-                    <AlertCircle className="size-5 sm:size-6 text-[#ff731a]" />
+              <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.2 }} transition={{ duration: 0.4, ease: "easeOut" }}>
+                <AccordionTrigger className="rounded-xl px-4 sm:px-6 py-4 sm:py-5 text-base sm:text-lg font-semibold bg-white/70 dark:bg-black/40 ring-1 ring-inset ring-gray-200 dark:ring-neutral-800 transition-all hover:bg-gray-50 dark:hover:bg-neutral-900 hover:-translate-y-0.5 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-neutral-900 data-[state=open]:ring-gray-300 dark:data-[state=open]:ring-neutral-700">
+                  <span className="inline-flex items-center gap-3">
+                    <span className="aspect-square size-9 sm:size-10 rounded-full flex items-center justify-center bg-gray-200 dark:bg-neutral-700 ring-1 ring-inset ring-white/60 dark:ring-neutral-600/40">
+                      <AlertCircle className="size-5 sm:size-6 text-[#ff731a]" />
+                    </span>
+                    Garansi dan bantuan jika kode bermasalah
                   </span>
-                  Garansi dan bantuan jika kode bermasalah
-                </span>
-              </AccordionTrigger>
-              <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                Jika terjadi kendala pada kode atau aktivasi, kami akan bantu menelusuri dan menyelesaikannya. Silakan hubungi tim dukungan melalui Kontak dengan detail transaksi Anda.
-              </AccordionContent>
+                </AccordionTrigger>
+                <AccordionContent className="px-4 sm:px-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Jika terjadi kendala pada kode atau aktivasi, kami akan bantu menelusuri dan menyelesaikannya. Silakan hubungi tim dukungan melalui Kontak dengan detail transaksi Anda.
+                </AccordionContent>
+              </motion.div>
             </AccordionItem>
           </Accordion>
         </div>

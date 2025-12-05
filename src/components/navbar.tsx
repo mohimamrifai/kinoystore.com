@@ -4,6 +4,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { useEffect, useState } from "react"
+import { useTheme } from "next-themes"
 import { usePathname } from "next/navigation"
 import {
   NavigationMenu,
@@ -17,15 +18,17 @@ import {
   SheetContent,
   SheetHeader,
   SheetTitle,
-  SheetFooter,
-  SheetClose,
 } from "@/components/ui/sheet"
-import { Menu, Package, ListChecks, Mail, Home, HelpCircle } from "lucide-react"
+import { Menu, Package, ListChecks, Mail, Home, HelpCircle, Sun, Moon } from "lucide-react"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
   const pathname = usePathname()
   const [activeSection, setActiveSection] = useState<string>("home")
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  const toggleTheme = () => setTheme(resolvedTheme === "dark" ? "light" : "dark")
 
   useEffect(() => {
     if (pathname !== "/") {
@@ -38,7 +41,7 @@ export default function Navbar() {
     }
     setFromHash()
 
-    const ids = ["paket", "carakerja", "kontak", "bantuan"]
+    const ids = ["home", "paket", "carakerja", "kontak", "bantuan"]
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter((el): el is HTMLElement => !!el)
@@ -55,7 +58,7 @@ export default function Navbar() {
           setActiveSection("home")
         }
       },
-      { rootMargin: "0px 0px -50% 0px", threshold: [0.25, 0.5, 0.75] }
+      { rootMargin: "-80px 0px -40% 0px", threshold: [0, 0.15, 0.3, 0.6] }
     )
 
     elements.forEach((el) => observer.observe(el))
@@ -91,7 +94,7 @@ export default function Navbar() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <NavigationMenuLink
-                  href="/"
+                  href="/#home"
                   className={`font-semibold px-4 py-2 text-base transition-colors hover:text-[#ff731a] relative after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-[#ff731a] after:transition-all after:duration-300 ${activeSection === "home" ? "text-[#ff731a] after:w-full" : "after:w-0"} hover:after:w-full`}
                 >
                   Beranda
@@ -134,10 +137,13 @@ export default function Navbar() {
         </nav>
 
         <div className="flex items-center gap-2 justify-self-end">
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-2">
+            <Button variant="outline" size="icon" aria-label="Toggle tema" onClick={toggleTheme}>
+              {mounted ? (resolvedTheme === "dark" ? <Sun className="size-5" /> : <Moon className="size-5" />) : <Moon className="size-5" />}
+            </Button>
             <Sheet open={menuOpen} onOpenChange={setMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" aria-label="Buka menu">
+                <Button variant="outline" size="icon" aria-label="Buka menu">
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
@@ -151,17 +157,22 @@ export default function Navbar() {
                     className="flex items-center gap-2 rounded-lg border border-gray-200 dark:border-neutral-800 p-3 hover:bg-accent hover:text-accent-foreground"
                     onClick={() => {
                       if (window.location.pathname !== "/") {
-                        window.location.href = "/"
+                        window.location.href = "/#home"
                         return
                       }
                       setMenuOpen(false)
                       setTimeout(() => {
-                        window.scrollTo({ top: 0, behavior: "smooth" })
-                        try {
-                          const url = new URL(window.location.href)
-                          url.hash = ""
-                          window.history.replaceState(null, "", url.pathname + url.search)
-                        } catch { }
+                        const el = document.getElementById("home")
+                        if (el) {
+                          el.scrollIntoView({ behavior: "smooth", block: "start" })
+                          try {
+                            const url = new URL(window.location.href)
+                            url.hash = "home"
+                            window.history.replaceState(null, "", url.toString())
+                          } catch { }
+                        } else {
+                          window.location.href = "/#home"
+                        }
                       }, 350)
                     }}
                   >
@@ -278,10 +289,10 @@ export default function Navbar() {
                   </button>
                 </div>
                 <div className="px-4 pb-4 pt-2 grid grid-cols-2 gap-4">
-                  <Button variant="outline" size="sm" className=" px-4" asChild>
+                  <Button variant="outline" size="lg" className="px-5 py-2.5 text-base" asChild>
                     <Link href="/login">Masuk</Link>
                   </Button>
-                  <Button variant="destructive" size="sm" className=" px-4 bg-[#ff731a] text-white hover:bg-[#e86615]" asChild>
+                  <Button variant="destructive" size="lg" className="px-5 py-2.5 text-base bg-[#ff731a] text-white hover:bg-[#e86615] dark:bg-[#ff731a] dark:hover:bg-[#e86615]" asChild>
                     <Link href="/register">Daftar</Link>
                   </Button>
                 </div>
@@ -289,10 +300,13 @@ export default function Navbar() {
             </Sheet>
           </div>
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="outline" size="sm" className=" px-4" asChild>
+            <Button variant="ghost" size="icon" aria-label="Toggle tema" onClick={toggleTheme}>
+              {mounted ? (resolvedTheme === "dark" ? <Sun className="size-5" /> : <Moon className="size-5" />) : <Moon className="size-5" />}
+            </Button>
+            <Button variant="outline" size="lg" className="px-5 py-2.5 text-base" asChild>
               <Link href="/login">Masuk</Link>
             </Button>
-            <Button variant="destructive" size="sm" className=" px-4 bg-[#ff731a] text-white hover:bg-[#e86615]" asChild>
+            <Button variant="destructive" size="lg" className="px-5 py-2.5 text-base bg-[#ff731a] text-white hover:bg-[#e86615] dark:bg-[#ff731a] dark:hover:bg-[#e86615]" asChild>
               <Link href="/register">Daftar</Link>
             </Button>
           </div>

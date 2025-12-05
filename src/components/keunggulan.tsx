@@ -54,7 +54,7 @@ export default function Keunggulan() {
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.2 }}
+          viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <h2 className="text-3xl sm:text-5xl font-bold text-center">
@@ -72,7 +72,7 @@ export default function Keunggulan() {
               className="group rounded-2xl border border-white/30 dark:border-white/10 bg-white/20 dark:bg-white/5 backdrop-blur-md p-8 shadow-sm transition hover:shadow-[0_10px_40px_rgba(255,115,26,0.15)] hover:-translate-y-0.5"
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
+              viewport={{ once: false, amount: 0.2 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: i * 0.06 }}
             >
               <div className="flex flex-col items-center gap-4 text-center">
